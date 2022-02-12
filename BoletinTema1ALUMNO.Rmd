@@ -220,38 +220,45 @@ hist(cabbages$VitC[cabbages$Cult =='c52'], main = paste("Variedad c52"))
 
 ```
 
+
 7.  Un modelo sencillo para relacionar variables es la *predicción lineal*. En el siguiente ejemplo se utiliza el conjunto de datos **whiteside**, de la librería **MASS**. Esta aproximación propone un modelo que predice una variable a partir de otra. Una primera etapa para plantear esta aproximación sería representar ambas variables mediante un diagrama de dispersión (Gráfico XY) y determinar si la relación entre variables "parece" lineal. Si es así, podemos plantear un modelo lineal (en este caso según un factor), donde se aprecia claramente que existe una relación lineal entre las dos variables consideradas. Observa y ejecuta el siguiente código.
 
 ```{r, echo=T,eval=F}
 #Diagrama de dispersión global.
 plot(whiteside$Temp, whiteside$Gas)
+summary(whiteside)
 #Diagrama de dispersión etiquetando según un factor.
-plot(whiteside$Temp, whiteside$Gas, pch=c(6,16)[whiteside\$Insul])
+plot(whiteside$Temp, whiteside$Gas, pch=c(6,16)[whiteside$Insul])
 legend(x="topright",legend=c("Insul = Before","Insul = After"), pch=c(6,16))
+
 # Planteamos 2 modelos lineales, uno para los datos de cada factor
 Model1 <- lm(Gas ~ Temp, data = whiteside, subset = which(Insul == "Before"))
 Model2 <- lm(Gas ~ Temp, data = whiteside, subset = which(Insul == "After"))
+
 # Representamos las rectas correspondientes a cada modelo lineal
 abline(Model1, lty=2)
 abline(Model2)
 ```
 
-```{r,echo=T,include=T,eval=F}
-
-
-
-
-
-
-
-
-
-
-
-
-```
 
 a.  Utiliza un procedimiento análogo para determinar si se aprecia una relación lineal entre los niveles de vitamina C, **VitC** en función del peso de la calabaza, **HeadWt**, en el conjunto de datos **cabbages**.
+```{r}
+#Diagrama de dispersión global.
+plot(cabbages$VitC, cabbages$HeadWt)
+
+#Diagrama de dispersión etiquetando según un factor.
+plot(cabbages$VitC, cabbages$HeadWt, pch=c(6,16)[cabbages$Cult])
+legend(x="topright",legend=c("Cult = c39","Cult = c52"), pch=c(6,16))
+
+# Planteamos 2 modelos lineales, uno para los datos de cada factor
+Model1 <- lm(VitC ~ HeadWt, data = cabbages, subset = which(Cult == "c39"))
+Model2 <- lm(VitC ~ HeadWt, data = cabbages, subset = which(Cult == "c52"))
+
+# Representamos las rectas correspondientes a cada modelo lineal
+abline(Model1, lty=2)
+abline(Model2)
+```
+
 b.  Repite el apartado anterior, pero obteniendo un modelo para cada una de las dos variedades de calabaza, **Cult**. Ver[Parámetros básicos plot](https://www.statmethods.net/advgraphs/parameters.html).
 
 ```{r}
