@@ -115,14 +115,13 @@ row.names(Animals2)
 colnames(Animals2)
 ```
 
-d.  Usa la función **intersect** y almacena en la variable *commonAnimals* los aminales que aparezcan en ambos conjuntos
+d.  Usa la función **intersect** y almacena en la variable *commonAnimals* los animales que aparezcan en ambos conjuntos
 
 ```{r}
-
-
-
-
-
+intersect<-intersect(mammals,Animals2)
+rownames(intersect)
+commonAnimals<-rownames(intersect)
+commonAnimals
 
 ```
 
