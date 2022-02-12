@@ -129,16 +129,14 @@ e.  Usa **setdiff** para averiguar qué animales no están en ambos conjuntos. �
 
 ```{r}
 setdiff(Animals2,mammals)
-# Son exactamente 3 animales, caracterizados por ser especies de animales
+# Son exactamente 3 animales, caracterizados por ser especies de dinosaurios
 
 ```
 
 f.  Determina las diferencia entre los animales que no aparecen en ambos conjuntos.
 
 ```{r}
-
-
-
+# La diferencia entre ellos son los valores de las dos variables categóricas que forman parte de las columnas del data, que son body y brain.
 
 
 ```
