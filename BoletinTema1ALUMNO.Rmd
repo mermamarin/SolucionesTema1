@@ -92,23 +92,27 @@ b.  Usa las funciones **dim, head, tail, str** para una primera visión de los c
 c.  Muestra los nombres de las filas y las columnas (**rownames**, **colnames**)
 
 ```{r}
+mammals
+Animals2
 
+# mammals
+dim(mammals)
+head(mammals)
+tail(mammals)
+str(mammals)
 
+# Animals2
+dim(Animals2)
+head(Animals2)
+tail(Animals2)
+str(Animals2)
 
+# Filas y Columnas
+row.names(mammals)
+colnames(mammals)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+row.names(Animals2)
+colnames(Animals2)
 ```
 
 d.  Usa la función **intersect** y almacena en la variable *commonAnimals* los aminales que aparezcan en ambos conjuntos
